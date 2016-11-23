@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `itm` mod in crate `f3`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, itm">
+
+    <title>f3::examples::itm - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../../index.html'>f3</a>::<wbr><a href='../index.html'>examples</a></p><script>window.sidebarCurrent = {name: 'itm', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../../index.html'>f3</a>::<wbr><a href='../index.html'>examples</a>::<wbr><a class='mod' href=''>itm</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-17' class='srclink' href='../../../src/f3/src/examples/itm.rs.html#2-66' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>With the <code>iprint!</code> macros you can send <code>print!</code>-formatted messages to the
+HOST</p>
+
+<p>Where the HOST is the machine, likely your laptop, that&#39;s debugging the F3
+using OpenOCD+GDB.</p>
+
+<p>To receive the messages on the HOST you can use the <code>itmdump</code> tool to parse
+the &quot;instrumentation packets&quot; that the F3 will send:</p>
+
+<pre><code class="language-text">$ cargo install itm
+</code></pre>
+
+<p><code>itmdump</code> uses a named pipe to receive the data that the F3 sends. Call
+<code>itmdump</code> like this to create and use a named pipe in the <code>/tmp</code> directory:</p>
+
+<pre><code class="language-text">$ itmdump /tmp/itm.fifo
+</code></pre>
+
+<p>The command will block, let it be. Next, configure OpenOCD to send the F3
+messages to the named pipe that you just created. You can do this from your
+current GDB session:</p>
+
+<pre><code class="language-text">(gdb) monitor tpiu config internal /tmp/itm.fifo uart off 8000000
+</code></pre>
+
+<p>(The above command assumes your F3 is running at 8MHz, which is the default
+clock frequency)</p>
+
+<p>After that, the output of every <code>iprint!</code> call will appear in <code>itmdump</code>
+stdout! Note that if <code>itmdump</code> is connected to a terminal, its output will
+be line buffered so won&#39;t see anything printed on screen until a newline
+(<code>\n</code>) is reached. The example below, produces the following output.</p>
+
+<pre class='rust rust-example-rendered'>
+$ <span class='ident'>itmdump</span> <span class='op'>/</span><span class='ident'>tmp</span><span class='op'>/</span><span class='ident'>itm</span>.<span class='ident'>fifo</span>
+<span class='ident'>Hello</span>, <span class='macro'>world</span><span class='macro'>!</span></pre>
+
+<h1 id='notes' class='section-header'><a href='#notes'>Notes</a></h1>
+<p>You&#39;ll have to enter that <code>monitor</code> command on each GDB session so it&#39;s a
+good idea to add it to your <code>.gdbinit</code> so it gets done automatically when
+GDB starts.</p>
+
+<p>OTOH, You <em>don&#39;t</em> have to spawn a new <code>itmdump</code> command  for each debug
+session. The same process will continue to work for all subsequent debug
+sessions as long as you don&#39;t exit it (e.g. with Ctrl+C).</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_main</span>]</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>no_std</span>]</span>
+
+<span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>f3</span>;
+
+<span class='attribute'>#[<span class='ident'>no_mangle</span>]</span>
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>main</span>() <span class='op'>-&gt;</span> <span class='op'>!</span> {
+    <span class='macro'>iprintln</span><span class='macro'>!</span>(<span class='string'>&quot;Hello, world!&quot;</span>);
+
+    <span class='kw'>loop</span> {}
+}</pre>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../../";
+        window.currentCrate = "f3";
+    </script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
+    <script defer src="../../../search-index.js"></script>
+</body>
+</html>

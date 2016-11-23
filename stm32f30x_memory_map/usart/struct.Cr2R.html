@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Cr2R` struct in crate `stm32f30x_memory_map`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Cr2R">
+
+    <title>stm32f30x_memory_map::usart::Cr2R - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>stm32f30x_memory_map</a>::<wbr><a href='index.html'>usart</a></p><script>window.sidebarCurrent = {name: 'Cr2R', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>stm32f30x_memory_map</a>::<wbr><a href='index.html'>usart</a>::<wbr><a class='struct' href=''>Cr2R</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-7925' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#404-406' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct Cr2R { /* fields omitted */ }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr2R.html' title='stm32f30x_memory_map::usart::Cr2R'>Cr2R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-6149' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#408-508' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.add4' class='method'><span id='add4.v' class='invisible'><code>fn <a href='#method.add4' class='fnname'>add4</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 28:31 - Address of the USART node</p>
+</div><h4 id='method.add0' class='method'><span id='add0.v' class='invisible'><code>fn <a href='#method.add0' class='fnname'>add0</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 24:27 - Address of the USART node</p>
+</div><h4 id='method.rtoen' class='method'><span id='rtoen.v' class='invisible'><code>fn <a href='#method.rtoen' class='fnname'>rtoen</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 23 - Receiver timeout enable</p>
+</div><h4 id='method.abrmod' class='method'><span id='abrmod.v' class='invisible'><code>fn <a href='#method.abrmod' class='fnname'>abrmod</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 21:22 - Auto baud rate mode</p>
+</div><h4 id='method.abren' class='method'><span id='abren.v' class='invisible'><code>fn <a href='#method.abren' class='fnname'>abren</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 20 - Auto baud rate enable</p>
+</div><h4 id='method.msbfirst' class='method'><span id='msbfirst.v' class='invisible'><code>fn <a href='#method.msbfirst' class='fnname'>msbfirst</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 19 - Most significant bit first</p>
+</div><h4 id='method.datainv' class='method'><span id='datainv.v' class='invisible'><code>fn <a href='#method.datainv' class='fnname'>datainv</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 18 - Binary data inversion</p>
+</div><h4 id='method.txinv' class='method'><span id='txinv.v' class='invisible'><code>fn <a href='#method.txinv' class='fnname'>txinv</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 17 - TX pin active level inversion</p>
+</div><h4 id='method.rxinv' class='method'><span id='rxinv.v' class='invisible'><code>fn <a href='#method.rxinv' class='fnname'>rxinv</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 16 - RX pin active level inversion</p>
+</div><h4 id='method.swap' class='method'><span id='swap.v' class='invisible'><code>fn <a href='#method.swap' class='fnname'>swap</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 15 - Swap TX/RX pins</p>
+</div><h4 id='method.linen' class='method'><span id='linen.v' class='invisible'><code>fn <a href='#method.linen' class='fnname'>linen</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 14 - LIN mode enable</p>
+</div><h4 id='method.stop' class='method'><span id='stop.v' class='invisible'><code>fn <a href='#method.stop' class='fnname'>stop</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 12:13 - STOP bits</p>
+</div><h4 id='method.clken' class='method'><span id='clken.v' class='invisible'><code>fn <a href='#method.clken' class='fnname'>clken</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 11 - Clock enable</p>
+</div><h4 id='method.cpol' class='method'><span id='cpol.v' class='invisible'><code>fn <a href='#method.cpol' class='fnname'>cpol</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 10 - Clock polarity</p>
+</div><h4 id='method.cpha' class='method'><span id='cpha.v' class='invisible'><code>fn <a href='#method.cpha' class='fnname'>cpha</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 9 - Clock phase</p>
+</div><h4 id='method.lbcl' class='method'><span id='lbcl.v' class='invisible'><code>fn <a href='#method.lbcl' class='fnname'>lbcl</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 8 - Last bit clock pulse</p>
+</div><h4 id='method.lbdie' class='method'><span id='lbdie.v' class='invisible'><code>fn <a href='#method.lbdie' class='fnname'>lbdie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 6 - LIN break detection interrupt enable</p>
+</div><h4 id='method.lbdl' class='method'><span id='lbdl.v' class='invisible'><code>fn <a href='#method.lbdl' class='fnname'>lbdl</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 5 - LIN break detection length</p>
+</div><h4 id='method.addm7' class='method'><span id='addm7.v' class='invisible'><code>fn <a href='#method.addm7' class='fnname'>addm7</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 4 - 7-bit Address Detection/4-bit Address Detection</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr2R.html' title='stm32f30x_memory_map::usart::Cr2R'>Cr2R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7927' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#402' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr2R.html' title='stm32f30x_memory_map::usart::Cr2R'>Cr2R</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr2R.html' title='stm32f30x_memory_map::usart::Cr2R'>Cr2R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7930' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#402' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "stm32f30x_memory_map";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

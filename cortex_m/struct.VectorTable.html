@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `VectorTable` struct in crate `cortex_m`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, VectorTable">
+
+    <title>cortex_m::VectorTable - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>cortex_m</a></p><script>window.sidebarCurrent = {name: 'VectorTable', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>cortex_m</a>::<wbr><a class='struct' href=''>VectorTable</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-267' class='srclink' href='../src/cortex_m/lib.rs.html#52-79' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct VectorTable {
+    pub sp_main: &amp;'static (),
+    pub reset: extern fn() -&gt; !,
+    pub nmi: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub hard_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub mem_manage: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub bus_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub usage_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub svcall: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub debug_monitor: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub pendsv: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub sys_tick: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;,
+    pub interrupts: [<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;; 0],
+    // some fields omitted
+}</pre><div class='docblock'><p>Vector Table</p>
+
+<h1 id='references' class='section-header'><a href='#references'>References</a></h1>
+<ul>
+<li>ARMv7-M Architecture Reference Manual (issue E.b) - Section B1.5 - ARMv7-M exception model</li>
+</ul>
+</div><h2 class='fields'>Fields</h2><span id='structfield.sp_main' class='structfield'>
+                           <span id='sp_main.v' class='invisible'>
+                           <code>sp_main: &amp;'static ()</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Reset value of the Main Stack Pointer (MSP)</p>
+</div><span id='structfield.reset' class='structfield'>
+                           <span id='reset.v' class='invisible'>
+                           <code>reset: extern fn() -&gt; !</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Reset</p>
+</div><span id='structfield.nmi' class='structfield'>
+                           <span id='nmi.v' class='invisible'>
+                           <code>nmi: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Non Maskable Interrupt</p>
+</div><span id='structfield.hard_fault' class='structfield'>
+                           <span id='hard_fault.v' class='invisible'>
+                           <code>hard_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Hard Fault</p>
+</div><span id='structfield.mem_manage' class='structfield'>
+                           <span id='mem_manage.v' class='invisible'>
+                           <code>mem_manage: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Memory Management</p>
+</div><span id='structfield.bus_fault' class='structfield'>
+                           <span id='bus_fault.v' class='invisible'>
+                           <code>bus_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Bus Fault</p>
+</div><span id='structfield.usage_fault' class='structfield'>
+                           <span id='usage_fault.v' class='invisible'>
+                           <code>usage_fault: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Usage Fault</p>
+</div><span id='structfield.svcall' class='structfield'>
+                           <span id='svcall.v' class='invisible'>
+                           <code>svcall: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Supervisor Call</p>
+</div><span id='structfield.debug_monitor' class='structfield'>
+                           <span id='debug_monitor.v' class='invisible'>
+                           <code>debug_monitor: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Debug Monitor</p>
+</div><span id='structfield.pendsv' class='structfield'>
+                           <span id='pendsv.v' class='invisible'>
+                           <code>pendsv: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>PendSV</p>
+</div><span id='structfield.sys_tick' class='structfield'>
+                           <span id='sys_tick.v' class='invisible'>
+                           <code>sys_tick: <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>SysTick</p>
+</div><span id='structfield.interrupts' class='structfield'>
+                           <span id='interrupts.v' class='invisible'>
+                           <code>interrupts: [<a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='type' href='../cortex_m/type.Handler.html' title='cortex_m::Handler'>Handler</a>&gt;; 0]</code>
+                           </span></span><span class='stab '></span><div class='docblock'><p>Interrupts. An IMPLEMENTATION DEFINED number of them.</p>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "cortex_m";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

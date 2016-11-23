@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Cr1R` struct in crate `stm32f30x_memory_map`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Cr1R">
+
+    <title>stm32f30x_memory_map::usart::Cr1R - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>stm32f30x_memory_map</a>::<wbr><a href='index.html'>usart</a></p><script>window.sidebarCurrent = {name: 'Cr1R', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='../index.html'>stm32f30x_memory_map</a>::<wbr><a href='index.html'>usart</a>::<wbr><a class='struct' href=''>Cr1R</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-7913' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#57-59' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'><div class="docblock attributes">#[repr(C)]
+</div>pub struct Cr1R { /* fields omitted */ }</pre><h2 id='methods'>Methods</h2><h3 class='impl'><span class='in-band'><code>impl <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr1R.html' title='stm32f30x_memory_map::usart::Cr1R'>Cr1R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-5984' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#61-164' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.eobie' class='method'><span id='eobie.v' class='invisible'><code>fn <a href='#method.eobie' class='fnname'>eobie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 27 - End of Block interrupt enable</p>
+</div><h4 id='method.rtoie' class='method'><span id='rtoie.v' class='invisible'><code>fn <a href='#method.rtoie' class='fnname'>rtoie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 26 - Receiver timeout interrupt enable</p>
+</div><h4 id='method.deat' class='method'><span id='deat.v' class='invisible'><code>fn <a href='#method.deat' class='fnname'>deat</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 21:25 - Driver Enable assertion time</p>
+</div><h4 id='method.dedt' class='method'><span id='dedt.v' class='invisible'><code>fn <a href='#method.dedt' class='fnname'>dedt</a>(&amp;self) -&gt; u8</code></span></h4>
+<div class='docblock'><p>Bits 16:20 - Driver Enable deassertion time</p>
+</div><h4 id='method.over8' class='method'><span id='over8.v' class='invisible'><code>fn <a href='#method.over8' class='fnname'>over8</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 15 - Oversampling mode</p>
+</div><h4 id='method.cmie' class='method'><span id='cmie.v' class='invisible'><code>fn <a href='#method.cmie' class='fnname'>cmie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 14 - Character match interrupt enable</p>
+</div><h4 id='method.mme' class='method'><span id='mme.v' class='invisible'><code>fn <a href='#method.mme' class='fnname'>mme</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 13 - Mute mode enable</p>
+</div><h4 id='method.m' class='method'><span id='m.v' class='invisible'><code>fn <a href='#method.m' class='fnname'>m</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 12 - Word length</p>
+</div><h4 id='method.wake' class='method'><span id='wake.v' class='invisible'><code>fn <a href='#method.wake' class='fnname'>wake</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 11 - Receiver wakeup method</p>
+</div><h4 id='method.pce' class='method'><span id='pce.v' class='invisible'><code>fn <a href='#method.pce' class='fnname'>pce</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 10 - Parity control enable</p>
+</div><h4 id='method.ps' class='method'><span id='ps.v' class='invisible'><code>fn <a href='#method.ps' class='fnname'>ps</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 9 - Parity selection</p>
+</div><h4 id='method.peie' class='method'><span id='peie.v' class='invisible'><code>fn <a href='#method.peie' class='fnname'>peie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 8 - PE interrupt enable</p>
+</div><h4 id='method.txeie' class='method'><span id='txeie.v' class='invisible'><code>fn <a href='#method.txeie' class='fnname'>txeie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 7 - interrupt enable</p>
+</div><h4 id='method.tcie' class='method'><span id='tcie.v' class='invisible'><code>fn <a href='#method.tcie' class='fnname'>tcie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 6 - Transmission complete interrupt enable</p>
+</div><h4 id='method.rxneie' class='method'><span id='rxneie.v' class='invisible'><code>fn <a href='#method.rxneie' class='fnname'>rxneie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 5 - RXNE interrupt enable</p>
+</div><h4 id='method.idleie' class='method'><span id='idleie.v' class='invisible'><code>fn <a href='#method.idleie' class='fnname'>idleie</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 4 - IDLE interrupt enable</p>
+</div><h4 id='method.te' class='method'><span id='te.v' class='invisible'><code>fn <a href='#method.te' class='fnname'>te</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 3 - Transmitter enable</p>
+</div><h4 id='method.re' class='method'><span id='re.v' class='invisible'><code>fn <a href='#method.re' class='fnname'>re</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 2 - Receiver enable</p>
+</div><h4 id='method.uesm' class='method'><span id='uesm.v' class='invisible'><code>fn <a href='#method.uesm' class='fnname'>uesm</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 1 - USART enable in Stop mode</p>
+</div><h4 id='method.ue' class='method'><span id='ue.v' class='invisible'><code>fn <a href='#method.ue' class='fnname'>ue</a>(&amp;self) -&gt; bool</code></span></h4>
+<div class='docblock'><p>Bit 0 - USART enable</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr1R.html' title='stm32f30x_memory_map::usart::Cr1R'>Cr1R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7915' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#55' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'><h4 id='method.clone' class='method'><span id='clone.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr1R.html' title='stm32f30x_memory_map::usart::Cr1R'>Cr1R</a></code></span></h4>
+<div class='docblock'><p>Returns a copy of the value. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">Read more</a></p>
+</div><h4 id='method.clone_from' class='method'><span id='clone_from.v' class='invisible'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code><div class='since' title='Stable since Rust version 1.0.0'>1.0.0</div></span></h4>
+<div class='docblock'><p>Performs copy-assignment from <code>source</code>. <a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from">Read more</a></p>
+</div></div><h3 class='impl'><span class='in-band'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../../stm32f30x_memory_map/usart/struct.Cr1R.html' title='stm32f30x_memory_map::usart::Cr1R'>Cr1R</a></code></span><span class='out-of-band'><div class='ghost'></div><a id='src-7918' class='srclink' href='../../src/stm32f30x_memory_map/usart.rs.html#55' title='goto source code'>[src]</a></span></h3>
+<div class='impl-items'></div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "stm32f30x_memory_map";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `peripheral` mod in crate `cortex_m`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, peripheral">
+
+    <title>cortex_m::peripheral - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>cortex_m</a></p><script>window.sidebarCurrent = {name: 'peripheral', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>cortex_m</a>::<wbr><a class='mod' href=''>peripheral</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-36' class='srclink' href='../../src/cortex_m/peripheral/mod.rs.html#1-149' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Core peripherals</p>
+
+<h1 id='notes' class='section-header'><a href='#notes'>Notes</a></h1>
+<ul>
+<li>Although the <code>*_mut()</code> functions always return a valid/live reference, the API doesn&#39;t prevent
+the user from creating multiple mutable aliases. It&#39;s up to the user to ensure that no
+unsynchonized concurrent access is performed through these references.</li>
+</ul>
+
+<h1 id='caveats' class='section-header'><a href='#caveats'>Caveats</a></h1>
+<ul>
+<li>The API doesn&#39;t check if the value passed to <code>write</code> is valid (e.g. reserved bits are not
+modified) or not. It&#39;s up to the user to verify that.</li>
+</ul>
+
+<h1 id='references' class='section-header'><a href='#references'>References</a></h1>
+<ul>
+<li>ARMv7-M Architecture Reference Manual (Issue E.b) - Chapter B3</li>
+</ul>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='cpuid/index.html'
+                                  title='cortex_m::peripheral::cpuid'>cpuid</a></td>
+                           <td class='docblock-short'>
+                                <p>CPUID</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='dcb/index.html'
+                                  title='cortex_m::peripheral::dcb'>dcb</a></td>
+                           <td class='docblock-short'>
+                                <p>Debug Control Block</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='dwt/index.html'
+                                  title='cortex_m::peripheral::dwt'>dwt</a></td>
+                           <td class='docblock-short'>
+                                <p>Data Watchpoint and Trace unit</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='fpb/index.html'
+                                  title='cortex_m::peripheral::fpb'>fpb</a></td>
+                           <td class='docblock-short'>
+                                <p>Flash Patch and Breakpoint unit</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='fpu/index.html'
+                                  title='cortex_m::peripheral::fpu'>fpu</a></td>
+                           <td class='docblock-short'>
+                                <p>Floating Point Unit</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='itm/index.html'
+                                  title='cortex_m::peripheral::itm'>itm</a></td>
+                           <td class='docblock-short'>
+                                <p>Instrumentation Trace Macrocell</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='mpu/index.html'
+                                  title='cortex_m::peripheral::mpu'>mpu</a></td>
+                           <td class='docblock-short'>
+                                <p>Memory Protection Unit</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='nvic/index.html'
+                                  title='cortex_m::peripheral::nvic'>nvic</a></td>
+                           <td class='docblock-short'>
+                                <p>Nested Vector Interrupt Controller</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='scb/index.html'
+                                  title='cortex_m::peripheral::scb'>scb</a></td>
+                           <td class='docblock-short'>
+                                <p>System Control Block</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='syst/index.html'
+                                  title='cortex_m::peripheral::syst'>syst</a></td>
+                           <td class='docblock-short'>
+                                <p>SysTick: System Timer</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='tpiu/index.html'
+                                  title='cortex_m::peripheral::tpiu'>tpiu</a></td>
+                           <td class='docblock-short'>
+                                <p>Trace Port Interface Unit</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.cpuid.html'
+                                  title='cortex_m::peripheral::cpuid'>cpuid</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;cpuid::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.dcb.html'
+                                  title='cortex_m::peripheral::dcb'>dcb</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;dcb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.dcb_mut.html'
+                                  title='cortex_m::peripheral::dcb_mut'>dcb_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut dcb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.dwt.html'
+                                  title='cortex_m::peripheral::dwt'>dwt</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;dwt::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.dwt_mut.html'
+                                  title='cortex_m::peripheral::dwt_mut'>dwt_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut dwt::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.fpb.html'
+                                  title='cortex_m::peripheral::fpb'>fpb</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;fpb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.fpb_mut.html'
+                                  title='cortex_m::peripheral::fpb_mut'>fpb_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut fpb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.fpu.html'
+                                  title='cortex_m::peripheral::fpu'>fpu</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;fpu::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.fpu_mut.html'
+                                  title='cortex_m::peripheral::fpu_mut'>fpu_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut fpu::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.itm.html'
+                                  title='cortex_m::peripheral::itm'>itm</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;itm::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.itm_mut.html'
+                                  title='cortex_m::peripheral::itm_mut'>itm_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut itm::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.mpu.html'
+                                  title='cortex_m::peripheral::mpu'>mpu</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mpu::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.mpu_mut.html'
+                                  title='cortex_m::peripheral::mpu_mut'>mpu_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut mpu::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.nvic.html'
+                                  title='cortex_m::peripheral::nvic'>nvic</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;nvic::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.nvic_mut.html'
+                                  title='cortex_m::peripheral::nvic_mut'>nvic_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut nvic::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.scb.html'
+                                  title='cortex_m::peripheral::scb'>scb</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;scb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.scb_mut.html'
+                                  title='cortex_m::peripheral::scb_mut'>scb_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut scb::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.syst.html'
+                                  title='cortex_m::peripheral::syst'>syst</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;syst::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.syst_mut.html'
+                                  title='cortex_m::peripheral::syst_mut'>syst_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut syst::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.tpiu.html'
+                                  title='cortex_m::peripheral::tpiu'>tpiu</a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;tpiu::Registers</code></p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.tpiu_mut.html'
+                                  title='cortex_m::peripheral::tpiu_mut'>tpiu_mut</a><a title='unsafe function' href='#'><sup>⚠</sup></a></td>
+                           <td class='docblock-short'>
+                                <p><code>&amp;mut tpiu::Registers</code></p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "cortex_m";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

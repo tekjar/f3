@@ -1,0 +1,1 @@
+initSidebarItems({"constant":[["FREQUENCY","The frequency, in Hz, of the clock that backs up this module."]],"fn":[["init","Initializes the necessary stuff to be able to use the `time` module"]],"struct":[["Instant","A measurement of a monotonically increasing clock"]]});

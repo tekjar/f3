@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `interrupt` mod in crate `f3`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, interrupt">
+
+    <title>f3::interrupt - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>f3</a></p><script>window.sidebarCurrent = {name: 'interrupt', ty: 'mod', relpath: '../'};</script><script defer src="../sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Module <a href='../index.html'>f3</a>::<wbr><a class='mod' href=''>interrupt</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-234' class='srclink' href='../../src/f3/src/interrupt.rs.html#1-254' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Interrupts</p>
+
+<p><strong>WARNING</strong> Here be dragons. Interrupts are key for writing asynchronous
+programs but they also open the door to data races. Tread with care and mind
+your <code>unsafe</code>s.</p>
+
+<p>All the interrupts prefixed with an underscore (<code>_</code>) can be overridden by
+the top crate.</p>
+</div><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._adc1_2.html'
+                                  title='f3::interrupt::_adc1_2'>_adc1_2</a></td>
+                           <td class='docblock-short'>
+                                <p>ADC1 and ADC2 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._adc3.html'
+                                  title='f3::interrupt::_adc3'>_adc3</a></td>
+                           <td class='docblock-short'>
+                                <p>ADC3 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._adc4.html'
+                                  title='f3::interrupt::_adc4'>_adc4</a></td>
+                           <td class='docblock-short'>
+                                <p>ADC4 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._can_rx1.html'
+                                  title='f3::interrupt::_can_rx1'>_can_rx1</a></td>
+                           <td class='docblock-short'>
+                                <p>CAN_RX1 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._can_sce.html'
+                                  title='f3::interrupt::_can_sce'>_can_sce</a></td>
+                           <td class='docblock-short'>
+                                <p>CAN_SCE interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._comp1_2_3.html'
+                                  title='f3::interrupt::_comp1_2_3'>_comp1_2_3</a></td>
+                           <td class='docblock-short'>
+                                <p>COMP1 &amp; COMP2 &amp; COMP3 interrupts combined with EXTI Lines 21,22 and 29
+interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._comp4_5_6.html'
+                                  title='f3::interrupt::_comp4_5_6'>_comp4_5_6</a></td>
+                           <td class='docblock-short'>
+                                <p>COMP4 &amp; COMP5 &amp; COMP6 interrupts combined with EXTI Lines 30, 31 and 32
+interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._comp7.html'
+                                  title='f3::interrupt::_comp7'>_comp7</a></td>
+                           <td class='docblock-short'>
+                                <p>COMP7 interrupt combined with EXTI Line 33 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel1.html'
+                                  title='f3::interrupt::_dma1_channel1'>_dma1_channel1</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 1 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel2.html'
+                                  title='f3::interrupt::_dma1_channel2'>_dma1_channel2</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 2 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel3.html'
+                                  title='f3::interrupt::_dma1_channel3'>_dma1_channel3</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 3 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel4.html'
+                                  title='f3::interrupt::_dma1_channel4'>_dma1_channel4</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 4 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel5.html'
+                                  title='f3::interrupt::_dma1_channel5'>_dma1_channel5</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 5 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel6.html'
+                                  title='f3::interrupt::_dma1_channel6'>_dma1_channel6</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 6 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma1_channel7.html'
+                                  title='f3::interrupt::_dma1_channel7'>_dma1_channel7</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA1 channel 7 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma2_channel1.html'
+                                  title='f3::interrupt::_dma2_channel1'>_dma2_channel1</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA2 channel1 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma2_channel2.html'
+                                  title='f3::interrupt::_dma2_channel2'>_dma2_channel2</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA2 channel2 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma2_channel3.html'
+                                  title='f3::interrupt::_dma2_channel3'>_dma2_channel3</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA2 channel3 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma2_channel4.html'
+                                  title='f3::interrupt::_dma2_channel4'>_dma2_channel4</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA2 channel4 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._dma2_channel5.html'
+                                  title='f3::interrupt::_dma2_channel5'>_dma2_channel5</a></td>
+                           <td class='docblock-short'>
+                                <p>DMA2 channel5 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti0.html'
+                                  title='f3::interrupt::_exti0'>_exti0</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line0 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti1.html'
+                                  title='f3::interrupt::_exti1'>_exti1</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line1 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti15_10.html'
+                                  title='f3::interrupt::_exti15_10'>_exti15_10</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line[15:10] interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti2_ts.html'
+                                  title='f3::interrupt::_exti2_ts'>_exti2_ts</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line2 and Touch sensing interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti3.html'
+                                  title='f3::interrupt::_exti3'>_exti3</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line3</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti4.html'
+                                  title='f3::interrupt::_exti4'>_exti4</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line4</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._exti9_5.html'
+                                  title='f3::interrupt::_exti9_5'>_exti9_5</a></td>
+                           <td class='docblock-short'>
+                                <p>EXTI Line[9:5] interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._flash.html'
+                                  title='f3::interrupt::_flash'>_flash</a></td>
+                           <td class='docblock-short'>
+                                <p>Flash global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._fmc.html'
+                                  title='f3::interrupt::_fmc'>_fmc</a></td>
+                           <td class='docblock-short'>
+                                <p>FMC global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._fpu.html'
+                                  title='f3::interrupt::_fpu'>_fpu</a></td>
+                           <td class='docblock-short'>
+                                <p>Floating point interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c1_er.html'
+                                  title='f3::interrupt::_i2c1_er'>_i2c1_er</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C1 error interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c1_ev.html'
+                                  title='f3::interrupt::_i2c1_ev'>_i2c1_ev</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C1 event interrupt &amp; EXTI Line23 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c2_er.html'
+                                  title='f3::interrupt::_i2c2_er'>_i2c2_er</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C2 error interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c2_ev.html'
+                                  title='f3::interrupt::_i2c2_ev'>_i2c2_ev</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C2 event interrupt &amp; EXTI Line24 interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c3_er.html'
+                                  title='f3::interrupt::_i2c3_er'>_i2c3_er</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C3 Error interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._i2c3_ev.html'
+                                  title='f3::interrupt::_i2c3_ev'>_i2c3_ev</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C3 Event interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._pvd.html'
+                                  title='f3::interrupt::_pvd'>_pvd</a></td>
+                           <td class='docblock-short'>
+                                <p>PVD through EXIT Line16 detection interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._rcc.html'
+                                  title='f3::interrupt::_rcc'>_rcc</a></td>
+                           <td class='docblock-short'>
+                                <p>RCC global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._rtc_alarm.html'
+                                  title='f3::interrupt::_rtc_alarm'>_rtc_alarm</a></td>
+                           <td class='docblock-short'>
+                                <p>RTC alarm interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._rtc_wkup.html'
+                                  title='f3::interrupt::_rtc_wkup'>_rtc_wkup</a></td>
+                           <td class='docblock-short'>
+                                <p>RTC wakeup timer interrupt through EXTI Line20</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._spi1.html'
+                                  title='f3::interrupt::_spi1'>_spi1</a></td>
+                           <td class='docblock-short'>
+                                <p>SPI1 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._spi2.html'
+                                  title='f3::interrupt::_spi2'>_spi2</a></td>
+                           <td class='docblock-short'>
+                                <p>SPI2 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._spi3.html'
+                                  title='f3::interrupt::_spi3'>_spi3</a></td>
+                           <td class='docblock-short'>
+                                <p>SPI3 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._spi4.html'
+                                  title='f3::interrupt::_spi4'>_spi4</a></td>
+                           <td class='docblock-short'>
+                                <p>SPI4 Global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tamper_stamp.html'
+                                  title='f3::interrupt::_tamper_stamp'>_tamper_stamp</a></td>
+                           <td class='docblock-short'>
+                                <p>Tamper and TimeStamp interrupts through EXTI Line19</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim1_brk_tim15.html'
+                                  title='f3::interrupt::_tim1_brk_tim15'>_tim1_brk_tim15</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM1 Break/TIM15 global interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim1_cc.html'
+                                  title='f3::interrupt::_tim1_cc'>_tim1_cc</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM1 capture compare interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim1_trg_com_tim17.html'
+                                  title='f3::interrupt::_tim1_trg_com_tim17'>_tim1_trg_com_tim17</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM1 trigger and commutation/TIM17 interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim1_up_tim16.html'
+                                  title='f3::interrupt::_tim1_up_tim16'>_tim1_up_tim16</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM1 Update/TIM16 global interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim2.html'
+                                  title='f3::interrupt::_tim2'>_tim2</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM2 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim20_brk.html'
+                                  title='f3::interrupt::_tim20_brk'>_tim20_brk</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM20 Break interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim20_cc.html'
+                                  title='f3::interrupt::_tim20_cc'>_tim20_cc</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM20 Capture Control interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim20_trg_com.html'
+                                  title='f3::interrupt::_tim20_trg_com'>_tim20_trg_com</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM20 Trigger and Commutation interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim20_up.html'
+                                  title='f3::interrupt::_tim20_up'>_tim20_up</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM20 Upgrade interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim3.html'
+                                  title='f3::interrupt::_tim3'>_tim3</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM3 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim4.html'
+                                  title='f3::interrupt::_tim4'>_tim4</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM4 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim6_dac.html'
+                                  title='f3::interrupt::_tim6_dac'>_tim6_dac</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM6 global and DAC1 underrun interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim7.html'
+                                  title='f3::interrupt::_tim7'>_tim7</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM7 global interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim8_brk.html'
+                                  title='f3::interrupt::_tim8_brk'>_tim8_brk</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM8 break interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim8_cc.html'
+                                  title='f3::interrupt::_tim8_cc'>_tim8_cc</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM8 capture compare interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim8_trg_com.html'
+                                  title='f3::interrupt::_tim8_trg_com'>_tim8_trg_com</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM8 Trigger and communication interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._tim8_up.html'
+                                  title='f3::interrupt::_tim8_up'>_tim8_up</a></td>
+                           <td class='docblock-short'>
+                                <p>TIM8 update interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._uart4.html'
+                                  title='f3::interrupt::_uart4'>_uart4</a></td>
+                           <td class='docblock-short'>
+                                <p>UART4 gloal and EXTI Line 34 interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._uart5.html'
+                                  title='f3::interrupt::_uart5'>_uart5</a></td>
+                           <td class='docblock-short'>
+                                <p>UART5 gloal and EXTI Line 35 interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usart1.html'
+                                  title='f3::interrupt::_usart1'>_usart1</a></td>
+                           <td class='docblock-short'>
+                                <p>USART1 global interrupt &amp; EXTI Line 25</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usart2.html'
+                                  title='f3::interrupt::_usart2'>_usart2</a></td>
+                           <td class='docblock-short'>
+                                <p>USART2 global interrupt &amp; EXIT Line 26</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usart3.html'
+                                  title='f3::interrupt::_usart3'>_usart3</a></td>
+                           <td class='docblock-short'>
+                                <p>USART3 global interrupt &amp; EXTI Line 28</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_hp.html'
+                                  title='f3::interrupt::_usb_hp'>_usb_hp</a></td>
+                           <td class='docblock-short'>
+                                <p>USB High priority interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_hp_can_tx.html'
+                                  title='f3::interrupt::_usb_hp_can_tx'>_usb_hp_can_tx</a></td>
+                           <td class='docblock-short'>
+                                <p>USB High priority/CAN_TX interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_lp.html'
+                                  title='f3::interrupt::_usb_lp'>_usb_lp</a></td>
+                           <td class='docblock-short'>
+                                <p>USB Low priority interrupt</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_lp_can_rx0.html'
+                                  title='f3::interrupt::_usb_lp_can_rx0'>_usb_lp_can_rx0</a></td>
+                           <td class='docblock-short'>
+                                <p>USB Low priority/CAN_RX0 interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_wake_up.html'
+                                  title='f3::interrupt::_usb_wake_up'>_usb_wake_up</a></td>
+                           <td class='docblock-short'>
+                                <p>USB wakeup from Suspend (EXTI line 18)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._usb_wake_up_rmp.html'
+                                  title='f3::interrupt::_usb_wake_up_rmp'>_usb_wake_up_rmp</a></td>
+                           <td class='docblock-short'>
+                                <p>USB wake up from Suspend and EXTI Line 18</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn._wwdg.html'
+                                  title='f3::interrupt::_wwdg'>_wwdg</a></td>
+                           <td class='docblock-short'>
+                                <p>Window Watchdog interrupt</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "f3";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    <script defer src="../../search-index.js"></script>
+</body>
+</html>

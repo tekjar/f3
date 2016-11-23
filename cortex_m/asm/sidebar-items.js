@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["nop","A no-operation. Useful to stop delay loops being elided."],["wfe","Wait for event"],["wfi","Wait for interupt"]]});

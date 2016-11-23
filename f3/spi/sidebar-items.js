@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Spi","SPI"],["Transfer","Future returned by Spi::transfer"],["TransferAll","Future returned by Spi::transfer_all"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Acceleration","Acceleration reading"],["Lsm303dlhc","LSM303DLHC"],["MagneticField","Magnetic field reading"]]});

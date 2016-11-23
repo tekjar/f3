@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["Direction","An enum over the LEDs, each LED has associated to it a direction"]],"fn":[["all_off","Turns off all the LEDs"],["init","Initializes the necessary stuff to drive the LEDs on and off"]],"static":[["LEDS","All the LEDs in the \"compass\" starting from \"North\" and going clockwise."]],"struct":[["Led","A single LED"]]});

@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["init_data","Initializes the `.data` section"],["zero_bss","Zeroes the `.bss` section"]]});

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `cortex_m` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, cortex_m">
+
+    <title>cortex_m - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'cortex_m', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>cortex_m</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/cortex_m/lib.rs.html#1-100' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>Low level access to Cortex-M processors</p>
+
+<p>This crate provides access to:</p>
+
+<ul>
+<li>Core peripherals like NVIC, SCB and SysTick.</li>
+<li>Core registers like CONTROL, MSP and PSR.</li>
+<li>Interrupt manipulation mechanisms</li>
+<li>Data structures like the vector table</li>
+<li>Miscellaneous assembly instructions like <code>bkpt</code></li>
+</ul>
+</div><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='asm/index.html'
+                                  title='cortex_m::asm'>asm</a></td>
+                           <td class='docblock-short'>
+                                <p>Miscellaneous assembly instructions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='interrupt/index.html'
+                                  title='cortex_m::interrupt'>interrupt</a></td>
+                           <td class='docblock-short'>
+                                <p>Interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='peripheral/index.html'
+                                  title='cortex_m::peripheral'>peripheral</a></td>
+                           <td class='docblock-short'>
+                                <p>Core peripherals</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='register/index.html'
+                                  title='cortex_m::register'>register</a></td>
+                           <td class='docblock-short'>
+                                <p>Processor core registers</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.bkpt.html'
+                                  title='cortex_m::bkpt'>bkpt</a></td>
+                           <td class='docblock-short'>
+                                <p>Puts the processor in Debug state. Debuggers can pick this up as a &quot;breakpoint&quot;.</p>
+                           </td>
+                       </tr></table><h2 id='structs' class='section-header'><a href="#structs">Structs</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.StackFrame.html'
+                                  title='cortex_m::StackFrame'>StackFrame</a></td>
+                           <td class='docblock-short'>
+                                <p>Stack frame</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='struct' href='struct.VectorTable.html'
+                                  title='cortex_m::VectorTable'>VectorTable</a></td>
+                           <td class='docblock-short'>
+                                <p>Vector Table</p>
+                           </td>
+                       </tr></table><h2 id='functions' class='section-header'><a href="#functions">Functions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='fn' href='fn.vector_table.html'
+                                  title='cortex_m::vector_table'>vector_table</a></td>
+                           <td class='docblock-short'>
+                                <p>Returns the vector table</p>
+                           </td>
+                       </tr></table><h2 id='types' class='section-header'><a href="#types">Type Definitions</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='type' href='type.Handler.html'
+                                  title='cortex_m::Handler'>Handler</a></td>
+                           <td class='docblock-short'>
+                                <p>Exception/Interrupt Handler</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "cortex_m";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>

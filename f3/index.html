@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `f3` crate.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, f3">
+
+    <title>f3 - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../rustdoc.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'></p><script>window.sidebarCurrent = {name: 'f3', ty: 'mod', relpath: '../'};</script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content mod">
+<h1 class='fqn'><span class='in-band'>Crate <a class='mod' href=''>f3</a></span><span class='out-of-band'><span id='render-detail'>
+                   <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                       [<span class='inner'>&#x2212;</span>]
+                   </a>
+               </span><a id='src-0' class='srclink' href='../src/f3/src/lib.rs.html#1-214' title='goto source code'>[src]</a></span></h1>
+<div class='docblock'><p>A crate to play with the <a href="http://www.st.com/en/evaluation-tools/stm32f3discovery.html">STM32F3DISCOVERY</a></p>
+
+<p>(What? You don&#39;t have one? How come? They are awesome and cheap ($15 +
+shipping))</p>
+
+<p>(No, I&#39;m not associated to STM32. I just like this board in particular.)</p>
+
+<h1 id='features' class='section-header'><a href='#features'>Features</a></h1>
+<ul>
+<li><p>High-level API over LEDs, sensors, timers, etc.</p></li>
+<li><p>An <code>iprint!</code> family of macros that sink their output to the ITM
+(Instrumentation Trace Macrocell) so you send data to the host over the
+same USB cable that you are using to debug your device.</p></li>
+<li><p>By default, <code>panic!</code>s also sink their messages to the ITM</p></li>
+<li><p>An <code>uprint!</code> family of macros that send their messages through the Serial
+interface.</p></li>
+<li><p>By default, an informative exception handler that tells you what went
+wrong.</p></li>
+<li><p>By default, everything (LEDs, sensors, etc) is initialized before the user
+entry point, <code>main</code>. So everything Just Works out of the box.</p></li>
+<li><p>Plenty of examples</p></li>
+</ul>
+
+<h1 id='requirements-and-starter-code' class='section-header'><a href='#requirements-and-starter-code'>Requirements and starter code</a></h1>
+<p>Today, you need these 6 things, one of them optional, but hopefully you
+won&#39;t need 3 of them in the future:</p>
+
+<ul>
+<li><p>Nightly Rust compiler newer than 2016-10-05: <code>rustup default nightly</code></p></li>
+<li><p><a href="https://crates.io/crates/xargo">Xargo</a> version 0.1.13 or newer. (After
+<a href="https://github.com/rust-lang/rfcs/pull/1133">rust-lang/rfcs#1133</a> gets
+accepted and implemented you won&#39;t need Xargo anymore)</p></li>
+<li><p>A binary Cargo project that depends on this crate.</p></li>
+</ul>
+
+<pre><code class="language-text">$ cargo new --bin foo &amp;&amp; cd $_
+$ edit Cargo.toml &amp;&amp; tail -n2 $_
+[dependencies]
+f3 = &quot;0.1.0&quot;
+</code></pre>
+
+<ul>
+<li>Optionally, you can also set <code>profile.release.lto = true</code> for even smaller
+binaries.</li>
+</ul>
+
+<pre><code class="language-text">$ edit Cargo.toml &amp;&amp; tail -n2 $_
+[profile.release]
+lto = true
+</code></pre>
+
+<ul>
+<li>This <code>.cargo/config</code> in the root of your Cargo project. (If Cargo build
+scripts ever gain a feature to pass arbitrary arguments to the linker then
+you won&#39;t <em>need</em> this. Setting <code>build.target</code> though always improves
+ergonomics)</li>
+</ul>
+
+<pre><code class="language-text">$ cat .cargo/config
+[build]
+target = &quot;thumbv7em-none-eabihf&quot;
+
+[target.thumbv7em-none-eabihf]
+rustflags = [
+    &quot;-C&quot;,
+    &quot;link-arg=-Tstm32f3discovery.ld&quot;,
+    &quot;-C&quot;,
+    &quot;link-arg=-nostartfiles&quot;,
+]
+</code></pre>
+
+<ul>
+<li>And this starter code:</li>
+</ul>
+
+<pre><code class="language-text">$ cat src/main.rs
+#![no_main]
+#![no_std]
+
+extern crate f3;
+
+#[no_mangle]
+pub fn main() -&gt; ! {
+    // Your code goes here!
+
+    loop {}
+}
+</code></pre>
+
+<p>With all that in place, you can finally build the project using Xargo:</p>
+
+<pre><code class="language-text">$ xargo build [--target thumbv7em-none-eabihf] [--release]
+</code></pre>
+
+<p>Check out my <a href="https://japaric.github.io/copper/">Copper</a> book for instructions on how to Flash and Debug this
+program!</p>
+
+<p>Also, check out my <a href="https://japaric.github.io/discovery">Discovery</a> book for an introductory course in
+microcontrollers based on the STM32F3DISCOVERY.</p>
+
+<h1 id='overriding-default-behaviors' class='section-header'><a href='#overriding-default-behaviors'>Overriding default behaviors</a></h1>
+<p>Cargo features can be used to disable/override some default behaviors:</p>
+
+<ul>
+<li><p>&quot;default-exception-handler&quot;. If disabled, the default exception handler
+can be overridden using the <code>_default_exception_handler</code> symbol
+(<code>extern &quot;C&quot; fn</code>).</p></li>
+<li><p>&quot;default-init&quot;. If disabled, the pre-main initialization routine can be
+overridden via the <code>_init</code> symbol (<code>fn</code>).</p></li>
+<li><p>&quot;default-panic-fmt&quot;. If disabled, you can override the default behavior of
+<code>panic!</code> using the <code>panic_fmt</code> lang item (<code>extern &quot;C&quot; fn</code>) .</p></li>
+<li><p>&quot;interrupts&quot;. If disabled, interrupts can&#39;t be used (the handlers can&#39;t be
+&quot;installed&quot;/overriden). This saves some space in Flash memory.</p></li>
+<li><p>&quot;static-ram&quot;. If disabled, the RAM initialization routine is not executed
+and <code>static mut</code> variables can&#39;t be used. This saves some space in Flash
+memory and makes the boot process slightly faster.</p></li>
+</ul>
+
+<h1 id='overriding-the-interrupt-and-exception-handlers' class='section-header'><a href='#overriding-the-interrupt-and-exception-handlers'>Overriding the interrupt and exception handlers</a></h1>
+<p>By default, all the interrupts and exceptions are handled using the same
+&quot;handler&quot; (function). You can override this behavior exposing a &quot;symbol&quot;
+(<code>extern &quot;C&quot; fn</code>) in your crate. For example, the override the TIM7
+interrupt handler, you would expose the <code>_tim7</code> symbol:</p>
+
+<pre class='rust rust-example-rendered'>
+<span class='attribute'>#[<span class='ident'>export_name</span> <span class='op'>=</span> <span class='string'>&quot;_tim7&quot;</span>]</span>
+<span class='kw'>pub</span> <span class='kw'>extern</span> <span class='string'>&quot;C&quot;</span> <span class='kw'>fn</span> <span class='ident'>my_tim7_interrupt_handler</span>() {
+    <span class='comment'>// ..</span>
+}</pre>
+
+<p>For a list of these symbol, check the <a href="exception/index.html">exception</a> and <a href="interrupt/index.html">interrupt</a> modules.
+All the overridable symbols start with an underscore (<code>_</code>).</p>
+
+<h1 id='examples' class='section-header'><a href='#examples'>Examples</a></h1>
+<p>See the <a href="examples/index.html">examples</a> module.</p>
+</div><h2 id='reexports' class='section-header'><a href="#reexports">Reexports</a></h2>
+<table><tr><td><code>pub extern crate <a class='mod' href='../stm32f30x_memory_map/index.html' title='stm32f30x_memory_map'>stm32f30x_memory_map</a> as peripheral;</code></td></tr></table><h2 id='modules' class='section-header'><a href="#modules">Modules</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='examples/index.html'
+                                  title='f3::examples'>examples</a></td>
+                           <td class='docblock-short'>
+                                <p>Examples</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='exception/index.html'
+                                  title='f3::exception'>exception</a></td>
+                           <td class='docblock-short'>
+                                <p>Exceptions</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='fpu/index.html'
+                                  title='f3::fpu'>fpu</a></td>
+                           <td class='docblock-short'>
+                                <p>Floating Point Unit (FPU)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='i2c/index.html'
+                                  title='f3::i2c'>i2c</a></td>
+                           <td class='docblock-short'>
+                                <p>I2C</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='interrupt/index.html'
+                                  title='f3::interrupt'>interrupt</a></td>
+                           <td class='docblock-short'>
+                                <p>Interrupts</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='itm/index.html'
+                                  title='f3::itm'>itm</a></td>
+                           <td class='docblock-short'>
+                                <p>ITM (Instrumentation Trace Macrocell)</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='l3gd20/index.html'
+                                  title='f3::l3gd20'>l3gd20</a></td>
+                           <td class='docblock-short'>
+                                <p>L3GD20 - Gyroscope</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='led/index.html'
+                                  title='f3::led'>led</a></td>
+                           <td class='docblock-short'>
+                                <p>LEDs</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='lsm303dlhc/index.html'
+                                  title='f3::lsm303dlhc'>lsm303dlhc</a></td>
+                           <td class='docblock-short'>
+                                <p>LSM303DLHC - Accelerometer + Magnetometer</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='serial/index.html'
+                                  title='f3::serial'>serial</a></td>
+                           <td class='docblock-short'>
+                                <p>Serial</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='spi/index.html'
+                                  title='f3::spi'>spi</a></td>
+                           <td class='docblock-short'>
+                                <p>SPI</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='time/index.html'
+                                  title='f3::time'>time</a></td>
+                           <td class='docblock-short'>
+                                <p>Temporal quantification</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='mod' href='timer/index.html'
+                                  title='f3::timer'>timer</a></td>
+                           <td class='docblock-short'>
+                                <p>Timers</p>
+                           </td>
+                       </tr></table><h2 id='macros' class='section-header'><a href="#macros">Macros</a></h2>
+<table>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.bkpt.html'
+                                  title='f3::bkpt'>bkpt</a></td>
+                           <td class='docblock-short'>
+                                <p>Puts the processor in Debug state. Debuggers can pick this up as a &quot;breakpoint&quot;.</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.iprint.html'
+                                  title='f3::iprint'>iprint</a></td>
+                           <td class='docblock-short'>
+                                <p>Macro for sending <code>print!</code>-formatted messages to the ITM (Instrumentation
+Trace Macrocell).</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.iprintln.html'
+                                  title='f3::iprintln'>iprintln</a></td>
+                           <td class='docblock-short'>
+                                <p>Macro for sending <code>print!</code>-formatted messages to the ITM, with a newline</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.uprint.html'
+                                  title='f3::uprint'>uprint</a></td>
+                           <td class='docblock-short'>
+                                <p>Macro for sending <code>print!</code>-formatted messages over the Serial Port</p>
+                           </td>
+                       </tr>
+                       <tr class=' module-item'>
+                           <td><a class='macro' href='macro.uprintln.html'
+                                  title='f3::uprintln'>uprintln</a></td>
+                           <td class='docblock-short'>
+                                <p>Macro for sending <code>print!</code>-formatted messages over the Serial Port, with a
+newline</p>
+                           </td>
+                       </tr></table></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                    <dt>+</dt>
+                    <dd>Collapse/expand all sections</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code> or <code>* -> vec</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "f3";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    <script defer src="../search-index.js"></script>
+</body>
+</html>
