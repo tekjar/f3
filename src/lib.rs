@@ -40,6 +40,7 @@ pub mod led;
 pub mod serial;
 pub mod timer;
 pub mod time;
+pub mod spi;
 
 pub mod frequency;
 use frequency::*;

@@ -3,4 +3,5 @@ stage = 0
 
 [dependencies.compiler_builtins]
 features = ["mem"]
+version = "0.1"
 stage = 1
