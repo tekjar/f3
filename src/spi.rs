@@ -16,13 +16,13 @@
 //! - MISO = PB14
 //! - MOSI = PB15
 
-use core::any::{Any, TypeId};
+use core::any::{Any};
 use core::ops::Deref;
 use core::ptr;
 
 use hal;
 use nb;
-use stm32f30x::{gpioa, SPI1, SPI2, spi1, GPIOA, GPIOE, RCC};
+use stm32f30x::{gpioa, SPI1, spi1, GPIOA, GPIOE, RCC};
 
 /// SPI instance that can be used with the `Spi` abstraction
 pub unsafe trait SPI: Deref<Target = spi1::RegisterBlock> {
@@ -58,45 +58,60 @@ impl<'a, S> Spi<'a, S>
 where S: Any + SPI,
 {
     /// Initializes the SPI
-    pub fn init(&self, gpio: &S::GPIO, enable: GPIOE, rcc: &RCC) {
+    ///
+    /// STEPS
+    /// -----
+    /// // Enable peripheral clock using RCC APB
+        // Enable SCK, MOSI, MISO and NSS GPIO clocks using RCC AHB
+        // Connect & configure the pin to the desired peripherals' Alternate Function (AF)
+        // Program the Polarity, Phase, First Data, Baud Rate Prescaler, Slave Management, Peripheral Mode and CRC Polynomial values using the SPI_Init()
+
+    pub fn init(&self, gpio: &S::GPIO, enable: &GPIOE, rcc: &RCC) {
         let spi = self.0;
 
-        if spi.get_type_id() == TypeId::of::<SPI1>() {
-            rcc.ahbenr.modify(|_, w| w.iopaen().enabled());
-            rcc.apb2enr.modify(|_, w| w.spi1en().enabled());
+        rcc.apb2enr.modify(|_, w| w.spi1en().set_bit());
 
-            gpio.afrl.modify(|_, w| unsafe {w.afrl5().bits(5).afrl6().bits(5).afrl7().bits(5)});
-            gpio.moder.modify(|_, w| w.moder5().alternate().moder6().alternate().moder7().alternate());
+        // GPIOA: configure PA5, PA6 and PA7 for SPI use
+        // AFRL5 = 5 (SPI1_SCK)
+        // AFRL6 = 5 (SPI1_MISO)
+        // AFRL7 = 5 (SPI1_MOSI)
+        // MODER* = 0b10 (Alternate function)
+        rcc.ahbenr.modify(|_, w| w.iopaen().set_bit().iopeen().set_bit());
+        gpio.afrl.modify(|_, w| unsafe {w.afrl5().bits(5).afrl6().bits(5).afrl7().bits(5)});
+        gpio.moder.modify(|_, w| w.moder5().alternate().moder6().alternate().moder7().alternate());
 
-            // should be GPIOE
-            enable.moder.modify(|_, w| w.moder3().output());
-            enable.bsrr.write(|w| w.bs3().set());
 
-            spi.cr1.write(|w| unsafe {
-                w.bidimode()
-                 .clear_bit()
-                 .rxonly()
-                 .clear_bit()
-                 .ssm()
-                 .set_bit()
-                 .ssi()
-                 .set_bit()
-                 .lsbfirst()
-                 .clear_bit()
-                 .br()
-                 .bits(0b010)
-                 .mstr()
-                 .set_bit()
-                 .cpol()
-                 .clear_bit()
-                 .cpha()
-                 .clear_bit()
-            });
-            
+        // GPIOE: configure PE3 as output and drive it low to enable SPI mode
+        enable.moder.modify(|_, w| w.moder3().output());
+        enable.bsrr.write(|w| w.bs3().set());
 
-        } else if spi.get_type_id() == TypeId::of::<SPI2>() {
-
-        }
+        /* Configure SPIx: direction, NSS management, first transmitted bit, BaudRate prescaler master/slave mode, CPOL and CPHA */
+        /* Set BIDImode, BIDIOE and RxONLY bits according to SPI_Direction value */
+        /* Set SSM, SSI and MSTR bits according to SPI_Mode and SPI_NSS values */
+        /* Set LSBFirst bit according to SPI_FirstBit value */
+        /* Set BR bits according to SPI_BaudRatePrescaler value */
+        /* Set CPOL bit according to SPI_CPOL value */
+        /* Set CPHA bit according to SPI_CPHA value */
+        spi.cr1.write(|w| unsafe {
+            w.bidimode()
+             .clear_bit()
+             .rxonly()
+             .clear_bit()
+             .ssm()
+             .set_bit()
+             .ssi()
+             .set_bit()
+             .lsbfirst()
+             .clear_bit()
+             .br()
+             .bits(0b010)
+             .mstr()
+             .set_bit()
+             .cpol()
+             .clear_bit()
+             .cpha()
+             .clear_bit()
+        });
 
         // FRXTH: RXNE threshold is 8-bit
         // DS: 8-bit data
